@@ -1,6 +1,6 @@
 ---
 name: group-meeting-slides
-description: Turn an English research paper PDF into a Chinese group-meeting (组会) presentation .pptx that keeps the paper's own figures and tables as original images. Use when the user supplies a paper PDF and wants a 组会/文献汇报/paper-reading slide deck built from it.
+description: Turn an English research paper PDF into a Chinese group-meeting presentation .pptx that keeps the paper's own figures and tables as original images. Use when the user supplies a paper PDF and wants a group-meeting / paper-reading slide deck built from it — including 组会、文献汇报、论文汇报、论文做成PPT、组会PPT、讲一篇论文、读论文并做幻灯片 — or asks in English for lab-meeting, journal-club or paper-reading slides.
 ---
 
 # 英文文献 → 中文组会汇报 PPT

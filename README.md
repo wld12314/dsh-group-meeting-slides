@@ -1,5 +1,9 @@
 # dsh-group-meeting-slides
 
+[![version](https://img.shields.io/github/v/release/wld12314/dsh-group-meeting-slides?label=version&color=2f6f4e)](https://github.com/wld12314/dsh-group-meeting-slides/releases)
+[![license](https://img.shields.io/github/license/wld12314/dsh-group-meeting-slides?color=2f6f4e)](LICENSE)
+[![DeepSeek Harness](https://img.shields.io/badge/DeepSeek%20Harness-skill-2f6f4e)](https://github.com/wld12314/dsh-group-meeting-slides)
+
 [English](#english) · [中文](#中文)
 
 把一篇英文论文 PDF 变成**中文组会汇报 PPT**的 DeepSeek Harness 技能。
