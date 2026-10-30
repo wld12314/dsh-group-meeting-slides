@@ -31,7 +31,15 @@
 
 ## 安装
 
-技能就是 `~/.dsh/skills/` 下的一个文件夹，拷进去即可被发现：
+本仓库是一个 DSH 插件包，`package.json` 里声明了 `dsh.bundle`，所以两种装法都行。
+
+**插件方式**（会出现在技能目录里，之后可随插件一起升级）：
+
+```bash
+dsh plugin add wld12314/dsh-group-meeting-slides
+```
+
+**手动方式**（不想装插件就拷文件夹）：
 
 ```powershell
 # Windows
@@ -45,7 +53,8 @@ git clone https://github.com/wld12314/dsh-group-meeting-slides.git
 cp -r dsh-group-meeting-slides/group-meeting-slides ~/.dsh/skills/
 ```
 
-重启 DSH（或新开一个会话）后，对 agent 说「把这篇论文做成组会 PPT」并给出 PDF 路径即可。
+装好后重启 DSH（或新开一个会话），对 agent 说「把这篇论文做成组会 PPT」
+并给出 PDF 路径即可。
 
 ## 依赖
 
@@ -92,10 +101,13 @@ build_pptx.py  →  <课题>_组会汇报.pptx  +  讲稿.md
 
 ```
 dsh-group-meeting-slides/
+├── package.json                    # dsh.bundle 清单
+├── cordis.patch.yml                # 挂载技能提供器
+├── lib/index.js                    # 技能提供器（把 SKILL.md 交给技能目录）
 ├── README.md
 ├── LICENSE
 ├── assets/preview/                 # README 预览图
-└── group-meeting-slides/           # ← 整个文件夹拷进 ~/.dsh/skills/
+└── group-meeting-slides/           # 技能本体，也可整个拷进 ~/.dsh/skills/
     ├── SKILL.md                    # 触发词、工作流、硬规则
     ├── references/
     │   ├── deck-schema.md          # deck.json 的完整契约
@@ -123,7 +135,9 @@ dsh-group-meeting-slides/
 | DeepSeek Harness 桌面版 | 已验证 |
 | DeepSeek Harness Web 版 | 应当可用——技能层由宿主统一加载，不依赖桌面独有 API |
 
-技能是纯 Markdown + Python，不引入任何 npm 包，也不依赖 Cordis 插件 API。
+技能本体是纯 Markdown + Python；仓库根上的 `package.json` → `cordis.patch.yml`
+→ `lib/index.js` 只是把 `group-meeting-slides/SKILL.md` 挂进技能目录的一层壳，
+运行时不联网、不装依赖，也不改宿主行为。
 
 ## 许可
 
@@ -138,7 +152,9 @@ Chinese group-meeting `.pptx` plus speaker notes, where every figure and table i
 the paper's own pixels cropped at the real bounding box — never redrawn, never
 estimated.
 
-**Install:** copy `group-meeting-slides/` into `~/.dsh/skills/`.
+**Install:** `dsh plugin add wld12314/dsh-group-meeting-slides`, or copy
+`group-meeting-slides/` into `~/.dsh/skills/` if you would rather install it as a
+plain skill folder.
 
 **Requires:** Python with PyMuPDF, python-pptx, Pillow (resolved by the host's
 `load_workspace_dependencies`, not your system Python).
