@@ -1,0 +1,49 @@
+{
+  "name": "dsh-group-meeting-slides",
+  "version": "1.0.0",
+  "description": "DeepSeek Harness skill that turns an English research paper PDF into a Chinese group-meeting .pptx plus speaker notes, keeping every figure and table as the paper's own cropped pixels.",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "group-meeting-slides",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "dsh": ">=0.2.0-rc.2 <0.3.0-0",
+    "node": ">=22"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "keywords": [
+    "dsh-plugin",
+    "dsh",
+    "deepseek-harness",
+    "skill",
+    "pptx",
+    "powerpoint",
+    "slides",
+    "paper",
+    "pdf",
+    "group-meeting"
+  ],
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wld12314/dsh-group-meeting-slides.git"
+  },
+  "homepage": "https://github.com/wld12314/dsh-group-meeting-slides#readme",
+  "bugs": {
+    "url": "https://github.com/wld12314/dsh-group-meeting-slides/issues"
+  }
+}
