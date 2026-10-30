@@ -1,0 +1,10 @@
+# Bundle layer for dsh-group-meeting-slides.
+#
+# The single row mounts the skill provider on the Host, so every preset that
+# loads skills sees group-meeting-slides in its session catalog. Disabling the
+# row removes the provider and the skill leaves the catalog with it. Skill files
+# are read from disk on demand, so a package update needs a reload or restart
+# before the new version is visible.
+- insert:
+    - id: group-meeting-slides
+      name: dsh-group-meeting-slides
